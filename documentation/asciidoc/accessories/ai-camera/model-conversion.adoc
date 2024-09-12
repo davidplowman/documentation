@@ -13,7 +13,7 @@ The first three steps will normally be performed on a more powerful computer suc
 
 The creation of neural network models is beyond the scope of this guide. Existing models can be re-used, or new ones created using popular frameworks like TensorFlow or PyTorch.
 
-For more information, readers are referred to the official https://developer.sony.com/imx500/[Sony IMX500 developer website].
+For more information, readers are referred to the official https://developer.aitrios.sony-semicon.com/en/raspberrypi-ai-camera[Sony IMX500 developer website].
 
 === Quantisation and Compression
 
@@ -24,7 +24,9 @@ Models are quantised and compressed using Sony's _Model Compression Toolkit_. Th
 pip install model_compression_toolkit
 ----
 
-and information and tutorials can be found at the project's https://github.com/sony/model_optimization[GitHub page]. For further information, please refer to the official https://developer.sony.com/imx500/[Sony IMX500 developer website].
+and information and tutorials can be found at the project's https://github.com/sony/model_optimization[GitHub page].
+
+At the end of this process, you should export the converted model in either Keras (for TensorFlow) or ONNX (for PyTorch) format.
 
 === Conversion
 
@@ -62,7 +64,7 @@ imxconv-pt -i <compressed ONNX model> -o <output folder>
 
 In both cases, the output folder will be created containing, among other things, a memory usage report, plus a `packerOut.zip` file which is what we will need to copy to the Pi for the final step.
 
-Again, for more information on the model conversion process, please refer to the official https://developer.sony.com/imx500/[Sony IMX500 developer website].
+Again, for more information on the model conversion process, please refer to the official https://developer.aitrios.sony-semicon.com/en/raspberrypi-ai-camera/documentation/imx500-converter[Sony IMX500 converter documentation].
 
 === Packaging
 
@@ -82,4 +84,4 @@ imx500-package.sh -i <path to packerOut.zip> -o <output folder>
 
 The output folder should finally contain a file `network.rpk`, the name of which is what we pass to our IMX500 camera applications.
 
-More specific instructions on all these tools, and their constraints is out of scope for this tutorial. For a more comprehensive set of instructions and further specifics on the tools used, please see the official https://developer.sony.com/imx500/[Sony IMX500 developer website].
+More specific instructions on all these tools, and their constraints is out of scope for this tutorial. For a more comprehensive set of instructions and further specifics on the tools used, please see the official https://developer.aitrios.sony-semicon.com/en/raspberrypi-ai-camera/documentation/imx500-packager[Sony IMX500 packager documentation].

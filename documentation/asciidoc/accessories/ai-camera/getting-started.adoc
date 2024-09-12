@@ -19,7 +19,7 @@ The AI camera must download runtime firmware onto the IMX500 sensor during start
 
 [source,console]
 ----
-$ sudo apt install imx500-firmware imx500-models rpicam-apps-imx500-postprocess python3-opencv
+$ sudo apt install imx500-all
 ----
 
 This command:
@@ -111,7 +111,14 @@ For example, `max_detections` defines the maximum number of body points that the
 
 For examples of image classification, object inference, object segmentation, and pose estimation using Picamera2, see https://github.com/raspberrypi/picamera2-imx500/blob/main/examples/imx500/[the `picamera2-imx500` GitHub repository].
 
-Download the repository to your Raspberry Pi to run the examples. You'll find example files in the root directory, with additional information in the `README.md` file.
+Most of the examples use OpenCV for some additional processing, so if you haven't done so previsouly, please run:
+
+[source,console]
+----
+$ sudo apt install python3-opencv
+----
+
+Now download the repository to your Raspberry Pi to run the examples. You'll find example files in the root directory, with additional information in the `README.md` file.
 
 Run the following script from the repository to run YOLOv8 object inference:
 
