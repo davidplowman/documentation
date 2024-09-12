@@ -21,7 +21,7 @@ The AI camera requires run-time firmware to be downloaded onto the IMX500 sensor
 
 [source,console]
 ----
-sudo apt install imx500-firmware imx500-models rpicam-apps-imx500-postprocess python3-opencv
+sudo apt install imx500-firmware imx500-models rpicam-apps-imx500-postprocess
 ----
 
 This will install `/lib/firmware/imx500_loader.fpk` and `/lib/firmware/imx500_main.fpk` firmware files required for operating the IMX500 sensor. It will also place a number of neural network model firmware files in `/usr/share/imx500-models/`.
@@ -92,7 +92,14 @@ Again,`imx500_posenet.json` has a number of configuration parameters that can be
 
 https://datasheets.raspberrypi.com/camera/picamera2-manual.pdf[`Picamera2`] does not have a specific postprocessing framework like `rpicam-apps` does. However, this is because implementing such postprocessing is far simpler in Python compared to C++.
 
-Example scripts to perform image classification, object inference/segmentation, and pose estimation using `Picamera2` can be found in https://github.com/raspberrypi/picamera2-imx500/blob/main/examples/imx500/. The https://github.com/raspberrypi/picamera2-imx500/blob/main/examples/imx500/README.md[`README.md`] file lists all the neural networks that can be used and the available parameters for the example scripts.
+The example scripts, just like many real applications, make use of OpenCV, so we recommend installing this if you have not already done so:
+
+[source,console]
+----
+sudo apt install python3-opencv
+----
+
+Scripts to perform image classification, object inference/segmentation, and pose estimation using `Picamera2` can be found in https://github.com/raspberrypi/picamera2-imx500/blob/main/examples/imx500/. The https://github.com/raspberrypi/picamera2-imx500/blob/main/examples/imx500/README.md[`README.md`] file lists all the neural networks that can be used and the available parameters for the example scripts.
 
 For example, to run the YOLOv8 object inference demo use the following command:
 
